@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import SearchBar from '../components/searchBar'
+import AddBar from '../components/AddBar'
 import Content from '../components/content'
-import Footer from '../components/footer'
 import {connect} from 'react-redux'
 import * as ItemsActions from '../actions'
 import {bindActionCreators} from 'redux'
@@ -10,7 +9,7 @@ import {bindActionCreators} from 'redux'
 class App extends Component {
 
     static propTypes = {
-        items: React.PropTypes.object,
+        items: React.PropTypes.array,
         filter: React.PropTypes.string
     };
 
@@ -23,10 +22,9 @@ class App extends Component {
 
         return (
             <div style={styles}>
-                <h2>管理你的条目</h2>
-                <SearchBar filterItem={actions.filterItem}/>
-                <Content items={this.props.items} filter={this.props.filter} deleteItem={actions.deleteItem}/>
-                <Footer addItem={actions.addItem} deleteAll={actions.deleteAll}/>
+                <h2>待办事项</h2>
+                <AddBar addItem={actions.addItem} deleteAll={actions.deleteAll}/>
+                <Content items={this.props.items} deleteItem={actions.deleteItem}/>
             </div>
         )
     }

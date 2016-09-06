@@ -1,16 +1,20 @@
-import Immutable from 'immutable'
-import { ADD_ITEM, DELETE_ITEM, DELETE_ALL } from '../constants/actionTypes'
+import {ADD_ITEM, DELETE_ITEM, DELETE_ALL} from '../constants/actionTypes'
 
-const initialItems = Immutable.List([1, 2, 3])
+const initialItems = [];
 
 export default function items(state = initialItems, action) {
-    switch(action.type) {
+    const item = action.item;
+    const index = state.indexOf(item);
+    switch (action.type) {
         case ADD_ITEM:
-            return state.push(state.size !== 0 ? state.get(-1) + 1 : 1)
-        case DELETE_ITEM: 
-            return state.delete(state.indexOf(action.item))
+            return [...state, item];
+        case DELETE_ITEM:
+            return [
+                ...state.slice(0, index),
+                ...state.slice(index + 1)
+            ];
         case DELETE_ALL:
-            return state.clear()
+            return [];
         default:
             return state
     }
