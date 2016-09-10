@@ -1,8 +1,8 @@
-import '../scss/pure.scss'
 import React from 'react'
 import {render} from 'react-dom'
 import {Provider} from 'react-redux'
-import App from './containers/App'
+import {Route, Router, hashHistory} from 'react-router'
+import routes from './routes'
 import configureStore from './configureStore'
 
 // 初始数据
@@ -30,7 +30,9 @@ function renderDevTools(store) {
 render(
     <div>
         <Provider store={store}>
-            <App />
+            <Router history={hashHistory}>
+                {routes}
+            </Router>
         </Provider>
         {renderDevTools(store)}
     </div>,

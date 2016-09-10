@@ -15,10 +15,10 @@ export default class AddBar extends Component {
         const { className, ...others } = this.props;
         return (
             <div className="pure-form" { ...others } >
-                <input type="text" placeholder="添加什么任务?" ref="input"/>
+                <input type="text" placeholder="添加什么任务?" ref="input" style={{ marginBottom:10 }}/>
                 <button onClick={ (e)=> this.handleClick(e) } className="pure-button button-secondary">添加</button>
                 <button onClick={this.props.deleteAll} style={{ marginLeft:10 }} className="pure-button button-error">
-                    deleteAll
+                    删除全部
                 </button>
             </div>
         )

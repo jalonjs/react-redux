@@ -1,6 +1,6 @@
 import { FILTER_ITEM } from '../constants/actionTypes'
 
-const initialFilterItem = ''
+const initialFilterItem = 'ch'
 
 export default function filter(state = initialFilterItem, action) {
     switch(action.type) {
