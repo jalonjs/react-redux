@@ -1,1 +1,1 @@
-# react react-redux react-router
+# react react-redux react-router es6 hot-reload
